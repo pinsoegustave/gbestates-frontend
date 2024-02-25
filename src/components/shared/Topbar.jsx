@@ -9,17 +9,18 @@ import {
 } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { FaSquareXTwitter } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 
 export default function Topbar() {
   const [open, setOpen] = useState(false);
+  const { currentUser } = useSelector(state => state.user);
 
   const navLinks = [
     { title: "Home", link: "/" },
     { title: "About", link: "/about" },
-    { title: "For Rent", link: "/" },
-    { title: "For Sale", link: "/" },
-    { title: "Sign-in", link: "/sign-in" }
+    { title: "For Rent", link: "/for-rent" },
+    { title: "For Sale", link: "/for-sale" },
   ];
 
   const handleMenu = () => {
@@ -54,8 +55,8 @@ export default function Topbar() {
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center max-w-5xl mx-auto justify-between h-16">
             <div className="flex items-center">
-              <a href="/" className="">
-                GBE Estates
+              <a href="/" className="font-extrabold">
+                GBE ESTATES
               </a>
             </div>
             {/* NavLinks */}
@@ -70,6 +71,15 @@ export default function Topbar() {
                     {link.title}
                   </a>
                 ))}
+                <Link className=" text-white px-2 py-2 rounded-full flex items-center" to="/profile">
+                { currentUser ? (
+                  <img className='text-3xl rounded-full h-7 w-7 object-cover' src={currentUser.avatar} alt="profile" />
+                  ) : ( 
+                  // <FaUserCircle className="rounded-full flex items-center" />
+                    <li className=' sm:inline text-slate-700 hover:underline'>
+                Sign in</li>
+                )}
+            </Link>
               </div>
             </div>
             {/* Hamburger links */}

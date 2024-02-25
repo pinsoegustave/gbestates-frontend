@@ -19,6 +19,7 @@ import {
   signOutUserSuccess,
   signOutUserStart,
 } from "../redux/user/userSlice";
+import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
   const fileRef = useRef(null);
@@ -31,6 +32,7 @@ const Profile = () => {
   const [showListingError, setShowListingError] = useState(false);
   const [userListings, setUserListings] = useState([]);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   // firebase image storage
   // allow read;
   // allow write: if
@@ -124,25 +126,9 @@ const Profile = () => {
       dispatch(deleteUserFailure(error.message));
     }
   };
-
-  const handleShowListing = async () => {
-    try {
-      setShowListingError(false);
-      const res = await fetch("https://gbestates.onrender.com/api/listing/getAllHouses");
-      const data = await res.json();
-      if (data.success === false) {
-        setShowListingError(true);
-        return;
-      }
-
-      setUserListings(data);
-    } catch (error) {
-      setShowListingError(true);
-    }
-  };
   
   return (
-    <div className="p-3 max-w-lg mx-auto bg-red-100">
+    <div className="p-3 max-w-lg mx-auto bg-slate-200">
       <h1 className="text-3xl font-semibold text-center my-7">Profile</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
@@ -158,6 +144,7 @@ const Profile = () => {
           alt="profile"
           className="rounded-full h-24 w-24 object-over cursor-pointer self-center mt-2"
         />
+        <p className="text-center">Change profile picture</p>
         <p className="text-sm self-center">
           {fileUploadError ? (
             <span className="text-red-700">
@@ -221,37 +208,16 @@ const Profile = () => {
           Sign out
         </span>
       </div>
-      <p className="text-red-700 mt-5">{error ? error : ""}</p>
-      <p className="text-green-700 mt-5">
+      <p className="text-red-700 mt-5 bg-red-200 p-2">{error ? error : ""}</p>
+      <p className="text-green-700 mt-5 bg-green-200 p-2">
         {updateSuccess ? "User is updated successfully" : ""}
       </p>
-      <button onClick={handleShowListing} className="text-green-700 w-full">
+      {/* <button onClick={handleShowListing} className="text-green-700 w-full">
         Show houses
-      </button>
+      </button> */}
       <p className="text-red-700 mt-5">
         {showListingError ? "Error displaying houses" : ""}
       </p>
-      {userListings &&
-        userListings.length > 0 &&
-        userListings.map((listing, index) => (
-          <div key={index} className="bbrder rounded-lg p-3 flex justify-between items-center gap-10">
-            <Link to={`/listing/${listing._id}`}>
-              <img
-                src={listing.imageUrls[0]}
-                alt="listing image"
-                className="h-16 w-16 object-contain rounded-lg"
-              />
-            </Link>
-            <Link className="text-slate-700 font-semibold flex-1 hover:underline truncate">
-            <p className="">{listing.name}</p>
-            </Link>
-            <div className="flex flex-row items-center gap-4 ">
-              <button className="text-red-700 uppercase">Delete</button>
-              <button className="text-green-700 uppercase">Edit</button>
-            </div>
-            
-          </div>
-        ))}
     </div>
   );
 };

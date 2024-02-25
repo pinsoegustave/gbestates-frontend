@@ -36,7 +36,7 @@ const SignIn = () => {
           return;
         }
         dispatch(signInSuccess(data))
-        if (data.email === 'admin@gmail.com' && data.password == 'admin123kilop') {
+        if (data.email === 'admin@gmail.com') {
           navigate('/layout');
         } else {
         navigate('/') 

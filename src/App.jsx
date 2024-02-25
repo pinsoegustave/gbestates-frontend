@@ -5,23 +5,21 @@ import SignUp from './pages/SignUp'
 import About from './pages/About'
 import Profile from './pages/Profile'
 import Home from './pages/Home'
-import Header from './components/Header'
 import PrivateRoute from './components/PrivateRoute'
 import CreateListing from './pages/CreateListing'
 import Navbar from './components/Navbar'
 import DetailPage from './pages/DetailPage'
-import Footer from './components/Footer'
 import BuyHouse from './pages/BuyHouse'
 import Dashboard from './components/Dashboard'
 import Layout from './components/shared/Layout'
 import Proudcts from './components/Proudcts'
 import Orders from './pages/Orders'
 import Customers from './pages/Customers'
-import Topbar from './components/shared/Topbar'
-import ShowHeader from './components/ShowHeader'
 import UpdateListing  from './pages/UpdateListing'
 import Headerfile from './pages/Headerfile'
 import EmailVerify from './pages/EmailVerify'
+import ForRent from './pages/ForRent'
+import ForSale from './pages/ForSale'
 
 function App() {
   return (
@@ -33,6 +31,8 @@ function App() {
         <Route path="/about" element={<About/>}></Route>
         <Route path="/sign-in" element={<SignIn/>}></Route>
         <Route path="/sign-up" element={<SignUp/>}></Route>
+        <Route path="/for-rent" element={<ForRent/>}></Route>
+        <Route path="/for-sale" element={<ForSale/>}></Route>
       </Route>
       <Route path='/navbar' element={<Navbar />} />
       <Route path='/activate-email' element={<EmailVerify />} ></Route>

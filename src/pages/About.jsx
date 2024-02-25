@@ -1,17 +1,7 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore from "swiper";
-import { Navigation } from "swiper/modules";
-import "swiper/css/bundle";
 
 
 export default function About() {
-  SwiperCore.use([Navigation]);
-  const team = [
-    { names : "PINSOE Gustave", title: "CEO of GBE Estates"},
-    { names : "PINSOE Gustave", title: "CEO of GBE Estates"}
-  ];
-
 
   return (
     <div>
@@ -22,7 +12,7 @@ export default function About() {
             "url('https://www.houseplans.net/news/wp-content/uploads/2023/09/65544-768.jpeg')",
         }}
       >
-        <h2 className="text-3xl font-semibold">We GBE Real Estate</h2>
+        <h2 className="text-3xl  font-semibold">We GBE Real Estate</h2>
       </div>
       {/* About Section */}
       <div className="p-6 md:p-16 bg-slate-200 rounded">

@@ -67,7 +67,7 @@ const DetailPage = () => {
               { listing.regularPrice},000Frws
           </p>
           <div className="my-10 max-w-2xl">
-            <span className="font-bold">Description - </span>{listing.description}</div>
+            <span className="font-bold">Description - </span>{listing.description}Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, et voluptate atque modi in animi. Molestiae, laudantium porro odio expedita officiis cum? Laboriosam blanditiis vero doloribus a fuga nam omnis!</div>
           <div className="">
           <h2 className="font-semibold text-xl mt-8">Property details</h2>
           <span className="mt-2 max-w-[160px] border border-slate-500 flex"></span>

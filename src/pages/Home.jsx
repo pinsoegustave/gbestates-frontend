@@ -32,27 +32,34 @@ const Home = () => {
   return (
     <div className="relative w-full">
       <img src="../assets/Home.png" alt="" className="w-full h-screen" />
-      <div className="absolute p-2 top-8 md:mt-6 mt-40 ml-6 sm:right-0 sm:mr-32 sm:mt-20 w-80 bg-thirdGreen rounded-lg shadow-md">
-        <h2 className="text-2xl font-extralight text-center">
-          Welcome to GBE,
+      <div className="absolute w-full p-2 top-12 md:mt-10 mt-20 sm:mt-16 bg-thirdGreen rounded-lg shadow-md md:max-w-4xl md:ml-44">
+        <h2 className="text-2xl text-redBeige font-semibold text-center sm:flex justify-center">
+          Welcome to GBE Real Estate, 
         </h2>
-        <h2 className="text-4xl font-regular text-center">Real Estate</h2>
-        <p className="mt-2 ">
-          Contrary to popular belief, Lorem Ipsum is not simply random text. It
-          has roots in a piece of classical Latin literature from 45 BC, making
-          it over 2000 years old. Richard McClintock, a Latin professor at
-          Hampden-Sydney College in Virginia, looked up one of the more obscure
-          Latin words, consectetur, from a Lorem Ipsum passage,and going through
-          the cites of the word in classical literature, discovered the
-          undoubtable source.
+        <p className="mt-2 text-4xl text-center mb-3">
+        "Where Your Dream Home Awaits!
+Explore, Discover, and Find Your Perfect Place with Us."
         </p>
-        <button className="m-2 sm:w-40 p-2 mt-10 ml-20 sm:ml-16 bg-redBeige">
+        <span className="text-center">
+Your premier destination for finding the home of your dreams. At GBE, we understand that a home is more than just a place to live—it's a sanctuary, a reflection of your lifestyle, and a cornerstone of your future. Whether you're searching for a cozy starter home, an elegant estate, or an investment property, we're here to guide you every step of the way. </span>
+        <div className="flex justify-center">
+          <Link to={'#houses'}>
+        <button className="m-2 w-40 sm:w-40 p-2 mt-10 sm:ml-16 border hover:border-redBeige font-bold bg-redBeige hover:bg-thirdGreen">
           Explore more
         </button>
+          </Link>
+        <Link to={'/about'}>
+        <button className="m-2 w-40 sm:w-40 p-2 mt-10 ml-2 sm:ml-16 border font-bold border-redBeige hover:bg-redBeige hover:text-">
+          About us
+        </button>
+        </Link>
+        </div>
       </div>
-          <h2 className="text-2xl sm:text-3xl font-semibold m-10 text-center">
+      <div id="houses">
+          <h2 className="text-2xl sm:text-3xl font-semibold m-10 text-center" >
             Better home, more pride
           </h2>
+      </div>
       <p className="text-red-300">{showListingError}</p>
       {loading && <p className="">Loading....</p>}
       <div className="p-4 mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-16 w-[80%] gap-y-10 mb-4" >
